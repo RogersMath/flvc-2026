@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Last Mile Can Be 4,000 Miles Away — Jesse Rogers &amp; Mike Ba</title>
+<meta name="description" content="A tutor in Florida and a teacher in Senegal built one rope across the gap. The talk we gave at FLVC as a scroll-down page, free to reuse under CC BY 4.0.">
+<meta name="author" content="Jesse Rogers and Mike Ba">
+<meta property="og:title" content="The Last Mile Can Be 4,000 Miles Away">
+<meta property="og:description" content="Jesse Rogers and Mike Ba. A talk about building for one person at a time, and the help we need to make it last. CC BY 4.0.">
+<meta property="og:type" content="article">
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+<style>
+:root{
+  --bg:#15161d;
+  --panel:#23242d;
+  --panel-2:#1c1d26;
+  --line:#3a3c48;
+  --text:#f4f5f8;
+  --muted:#a9aebb;
+  --blue:#5b8cff;
+  --blue-soft:#9db8ff;
+  --ink:#0b0c10;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:1.0625rem;line-height:1.7;-webkit-text-size-adjust:100%}
+a{color:var(--blue-soft);text-underline-offset:3px}
+a:hover{color:#fff}
+:focus-visible{outline:3px solid var(--blue-soft);outline-offset:3px}
+.skip{position:absolute;left:-999px;top:0;background:var(--blue);color:var(--ink);padding:.7rem 1rem;font-weight:700;z-index:50}
+.skip:focus{left:0}
+
+/* header */
+header.bar{position:sticky;top:0;z-index:20;background:rgba(21,22,29,.96);border-bottom:1px solid var(--line);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.bar-in{max-width:1040px;margin:0 auto;padding:.7rem 1.25rem;display:flex;align-items:center;gap:.9rem}
+.logo{display:grid;place-items:center;width:44px;height:44px;background:#fff;color:var(--ink);font-weight:800;font-size:1rem;letter-spacing:-.02em;flex:none;text-decoration:none}
+.brand{font-weight:800;font-size:1.15rem;letter-spacing:-.01em;color:var(--text);text-decoration:none;white-space:nowrap}
+.spacer{flex:1}
+details.jump{position:relative}
+details.jump summary{list-style:none;cursor:pointer;border:2px solid var(--blue);padding:.55rem 1rem;font-weight:700;font-size:.95rem;background:var(--ink);color:var(--text);user-select:none}
+details.jump summary::-webkit-details-marker{display:none}
+details.jump summary::after{content:" \25BE"}
+details.jump[open] summary::after{content:" \25B4"}
+.jump-list{position:absolute;right:0;top:calc(100% + 8px);width:min(320px,86vw);background:var(--panel);border:1px solid var(--line);padding:.5rem;display:grid;gap:.1rem;box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.jump-list a{display:block;padding:.6rem .8rem;color:var(--text);text-decoration:none;font-weight:600}
+.jump-list a small{display:block;color:var(--muted);font-weight:500;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase}
+.jump-list a:hover{background:#2f3140}
+.progress{height:3px;background:transparent}
+.progress i{display:block;height:100%;width:0;background:var(--blue)}
+.pct{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.85rem;font-weight:600;min-width:3ch;text-align:right}
+
+/* layout */
+main{display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+.read{max-width:720px}
+section{padding:4.5rem 0 1rem}
+.hero{padding:3.5rem 0 2rem}
+.act{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;margin:0 0 1rem;color:var(--muted);font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.act b{color:var(--blue-soft);font-weight:800}
+h1{font-size:clamp(2.5rem,8.4vw,4.9rem);line-height:1.04;letter-spacing:-.03em;font-weight:800;margin:0 0 1.4rem;max-width:15ch}
+h2{font-size:clamp(1.9rem,5.6vw,3.1rem);line-height:1.1;letter-spacing:-.025em;font-weight:800;margin:0 0 1.2rem;max-width:22ch}
+h3{font-size:1.2rem;line-height:1.3;margin:0 0 .5rem;font-weight:800}
+p{margin:0 0 1.15rem}
+.lead{font-size:clamp(1.15rem,3.2vw,1.45rem);line-height:1.6;color:var(--muted);max-width:34em}
+.who{margin:0 0 1.6rem;color:var(--muted);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:.9rem;margin:2rem 0 1.6rem}
+.btn{display:inline-block;padding:1rem 1.6rem;font-weight:800;font-size:1.05rem;text-decoration:none;border:2px solid;border-radius:0;line-height:1.2}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:var(--ink)}
+.btn.primary:hover{background:#7ea3ff;border-color:#7ea3ff;color:var(--ink)}
+.btn.ghost{background:transparent;border-color:#e8e9ee;color:var(--text)}
+.btn.ghost:hover{background:#fff;color:var(--ink)}
+.pills{display:flex;flex-wrap:wrap;gap:.7rem;margin:0;padding:0;list-style:none}
+.pills a,.pills span{display:inline-block;border:1px solid #8d92a1;border-radius:999px;padding:.55rem 1.2rem;color:var(--text);text-decoration:none;font-size:1rem}
+.pills a:hover{background:#fff;color:var(--ink)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.8rem 0 1rem;padding:0;list-style:none}
+.card{background:var(--panel);border-top:4px solid #565869;padding:1.2rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem}
+.card.hi{border-top-color:var(--blue)}
+.card .tag{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.card.hi .tag{color:var(--blue-soft)}
+.card p{margin:0;color:#d4d7e0;font-size:1rem;line-height:1.6}
+.card .go{margin-top:auto;padding-top:.8rem;font-weight:700}
+.note{border-left:4px solid var(--blue);padding:.3rem 0 .3rem 1.1rem;margin:1.6rem 0;color:var(--muted)}
+.note strong{color:var(--text)}
+blockquote.big{margin:2rem 0;padding:0;font-size:clamp(1.5rem,4.6vw,2.4rem);line-height:1.25;font-weight:800;letter-spacing:-.02em;max-width:24ch}
+blockquote.big::before{content:"";display:block;width:56px;height:4px;background:var(--blue);margin-bottom:1.1rem}
+.stat{display:flex;gap:1.4rem;align-items:baseline;flex-wrap:wrap;margin:1.2rem 0 1rem}
+.stat .n{font-size:clamp(4rem,16vw,8rem);font-weight:800;line-height:.95;letter-spacing:-.04em;color:var(--blue)}
+.stat .t{font-size:clamp(1.15rem,3.4vw,1.5rem);line-height:1.35;max-width:20em;font-weight:700}
+.small{font-size:.92rem;color:var(--muted)}
+ol.q{margin:1.2rem 0 0;padding:0;list-style:none;counter-reset:q;display:grid;gap:.7rem}
+ol.q li{counter-increment:q;background:var(--panel);border-top:4px solid #565869;padding:.9rem 1.1rem .9rem 3.4rem;position:relative;line-height:1.55}
+ol.q li::before{content:counter(q);position:absolute;left:1.1rem;top:.85rem;font-weight:800;color:var(--blue-soft);font-size:1.05rem}
+figure{margin:2rem 0}
+figure svg{width:100%;height:auto;display:block;background:var(--panel-2);border:1px solid var(--line)}
+figcaption{margin-top:.7rem;color:var(--muted);font-size:.95rem}
+ul.key{list-style:none;margin:.9rem 0 0;padding:0;display:grid;gap:.5rem;font-weight:700}
+ul.key li{display:flex;align-items:center;gap:.8rem}
+ul.key i{display:inline-block;width:44px;flex:none;height:0}
+ul.key .k1{border-top:3px solid #a9aebb}
+ul.key .k2{border-top:8px dotted #5b8cff}
+details.faq{border-top:1px solid var(--line);padding:.2rem 0}
+details.faq:last-of-type{border-bottom:1px solid var(--line)}
+details.faq summary{cursor:pointer;font-weight:800;font-size:1.1rem;padding:.9rem 0;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--blue-soft);font-size:1.4rem;line-height:1}
+details.faq[open] summary::after{content:"\2212"}
+details.faq p{color:#d4d7e0;margin:0 0 1rem}
+ul.src{padding-left:1.1rem;margin:1rem 0 0}
+ul.src li{margin:.5rem 0}
+footer{margin-top:5rem;border-top:1px solid var(--line);padding:2.5rem 0 4rem;color:var(--muted);font-size:.95rem}
+footer p{max-width:46em}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--panel);padding:.15rem .45rem;font-size:.92em;color:var(--text)}
+
+@media (max-width:520px){
+  .brand{font-size:1rem}
+  .pct{display:none}
+  section{padding-top:3.5rem}
+}
+@media print{
+  :root{--bg:#fff;--panel:#f3f4f7;--panel-2:#fff;--line:#c9ccd6;--text:#111;--muted:#444;--blue:#1a4fd6;--blue-soft:#1a4fd6}
+  header.bar,.skip,.btns{display:none}
+  body{font-size:11pt}
+  a{color:#111}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;color:#444;word-break:break-all}
+  section{padding-top:1.5rem;break-inside:avoid-page}
+  .card{border:1px solid var(--line)}
+  .btn.primary{background:#fff;color:#111}
+  .stat .n{color:#1a4fd6}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="logo" href="#top" aria-label="Back to the top">JM</a>
+    <a class="brand" href="#top">Rogers &amp; Ba</a>
+    <span class="spacer"></span>
+    <span class="pct" id="pct" aria-hidden="true">0%</span>
+    <details class="jump">
+      <summary>Sections</summary>
+      <nav class="jump-list" aria-label="Sections">
+        <a href="#call"><small>Act 1</small>The call</a>
+        <a href="#one"><small>Act 2</small>One person at a time</a>
+        <a href="#mike"><small>Act 3</small>In conversation with Mike</a>
+        <a href="#number"><small>Act 4</small>One number</a>
+        <a href="#bridge"><small>Act 5</small>Fast and durable</a>
+        <a href="#ask"><small>Act 6</small>How you can help</a>
+        <a href="#faq"><small>Extra</small>Questions we expect</a>
+        <a href="#reuse"><small>Extra</small>Reuse this page</a>
+        <a href="#sources"><small>Extra</small>All links and sources</a>
+      </nav>
+    </details>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <p class="act"><b>FLVC</b><span>October 2026</span></p>
+    <h1>The last mile can be 4,000 miles away.</h1>
+    <p class="who">Jesse Rogers &amp; Mike Ba</p>
+    <p class="lead">A tutor in Florida and a teacher in Senegal built one rope across the gap. This page follows our talk from top to bottom. Everything on it is yours to reuse.</p>
+    <div class="btns">
+      <a class="btn primary" href="#call">Start the talk</a>
+      <a class="btn ghost" href="#ask">How you can help</a>
+    </div>
+    <ul class="pills">
+      <li><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li>
+      <li><span>Copy, adapt, translate</span></li>
+      <li><span>French welcome</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ACT 1 -->
+<section id="call">
+  <div class="wrap read">
+    <p class="act"><b>Act 1</b><span>The call</span></p>
+    <h2>A phone call from four thousand miles away</h2>
+    <p>One day my co-presenter, Mike Ba, called me with his class on speakerphone so I could hear their applause, their cheers and their thanks. It was for something I had built for them with AI, in a language they speak and I don&rsquo;t.</p>
+    <p>Mike is the reason it reached them. He knows their languages and their needs, and he put it in their hands.</p>
+    <p>I hope every educator gets an experience like that sometime in their life.</p>
+    <p>Social media, AI and video calls are why it is possible. Mike and I met in a Facebook forum in 2022. Four years later, the last mile can be crossed, even when it is 4,000 miles long.</p>
+    <p>Mike taught himself English, and he speaks five languages. He is the only English speaker in his village. He could have pursued opportunity in the West, and who would blame him? He decided to stay and help the children of Senegal.</p>
+    <p>To strengthen the bonds we have started, we need your help.</p>
+    <p class="small">&mdash; Jesse</p>
+    <div class="note"><strong>No statistics yet.</strong> First, just that sound. The rest of this page is how it became possible, and what it still needs.</div>
+  </div>
+</section>
+
+<!-- ACT 2 -->
+<section id="one">
+  <div class="wrap">
+    <div class="read">
+      <p class="act"><b>Act 2</b><span>One person at a time</span></p>
+      <h2>I sit with one student at a time</h2>
+      <p>As a tutor I am only ever face to face with one student. For a long time the question was how to explain an idea to the person in front of me.</p>
+      <p>Now a build costs a few sentences to an AI partner. Building got cheap. Knowing what to build did not. So I ask one question: <strong>what would change this one person&rsquo;s life?</strong> Then I build that, for that person, and I teach them to build too.</p>
+      <p>I don&rsquo;t think in terms of repositories or course adoption. From where I sit, that isn&rsquo;t the problem I have. It is a problem you solve, at a scale I can&rsquo;t reach. My pages are public on the open web, which is also how AI tools find them.</p>
+      <p class="small">&mdash; Jesse</p>
+    </div>
+    <ul class="grid">
+      <li class="card hi">
+        <span class="tag">One person</span>
+        <h3>Mike Ba Tutoring</h3>
+        <p>An eight-week plan for one teacher&rsquo;s first paying online students, with language options in English, French, Arabic, Wolof and Pulaar.</p>
+        <a class="go" href="https://rogersmath.github.io/mike-ba-tutoring/">Open the site</a>
+      </li>
+      <li class="card">
+        <span class="tag">One group &middot; CC0</span>
+        <h3>Learning to Learn</h3>
+        <p>An interactive workshop on evidence-based study strategies, with a live memory experiment and a full reference list. Built because I was asked to present to a group.</p>
+        <a class="go" href="https://rogersmath.github.io/trio/">Open the workshop</a>
+      </li>
+    </ul>
+    <p class="small read">Same process, two audiences: one person, one student group. A third build, a gift for a friend, is linked at the bottom of the page.</p>
+  </div>
+</section>
+
+<!-- ACT 3 -->
+<section id="mike">
+  <div class="wrap">
+    <div class="read">
+      <p class="act"><b>Act 3</b><span>In conversation with Mike</span></p>
+      <h2>Mike teaches in a village in Senegal</h2>
+      <p>Mike speaks five languages and taught himself English. He is the only English speaker in his village. In the room, he answers these questions himself, and what he shares about his students is his to choose.</p>
+      <ol class="q">
+        <li>Who are your students, and what is your village like?</li>
+        <li>What changed for you when you connected to the wider world?</li>
+        <li>What do your students most need?</li>
+      </ol>
+      <p class="small" style="margin-top:1rem">Feel free to reuse these questions for your own interviews.</p>
+      <h3 style="margin-top:2.4rem">If there is time: what he is growing</h3>
+      <p>Moringa is <em>n&eacute;b&eacute;day</em> in Wolof and <em>gawdi</em> in Pulaar, and it already grows wild in Senegal. The research report Mike and I wrote together argues that the gap in remote villages is less about scarcity than about knowledge: what to plant, how to prepare it, and how to protect it.</p>
+      <p>Mike has been working to get moringa adopted and nurtured. The results so far are mixed: animals eat it. That is a rough map, and we would like help correcting it.</p>
+      <p>Awareness runs both ways. Researching moringa for Mike put it in my kitchen. I sometimes stir it into my porridge.</p>
+    </div>
+    <ul class="grid">
+      <li class="card hi">
+        <span class="tag">Report &middot; CC BY-NC 4.0</span>
+        <h3>Dundal Ganthiakh: Green Infrastructure Report</h3>
+        <p>A research synthesis on moringa, duckweed, azolla and spirulina for food and water security in remote Senegalese villages. Written in French and English, with a reference list.</p>
+        <a class="go" href="https://rogersmath.github.io/senegal/">Read the report</a>
+      </li>
+      <li class="card">
+        <span class="tag">Substack</span>
+        <h3>Bonjour, les enfants du S&eacute;n&eacute;gal</h3>
+        <p>Jesse&rsquo;s post for Mike&rsquo;s students and the people around them.</p>
+        <a class="go" href="https://jesserogers.substack.com/p/bonjour-les-enfants-du-senegal">Read the post</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ACT 4 -->
+<section id="number">
+  <div class="wrap read">
+    <p class="act"><b>Act 4</b><span>One number</span></p>
+    <h2>How many are still waiting for the call</h2>
+    <div class="stat">
+      <span class="n">~3 in 4</span>
+      <span class="t">children living in extreme poverty live in sub-Saharan Africa.</span>
+    </div>
+    <p>The region is home to about 23% of the world&rsquo;s children, but to more than 312 million of the children in extreme poverty. Across the past decade, the World Bank and UNICEF found no improvement there.</p>
+    <p class="small">Source: World Bank and UNICEF, <em>Child Poverty: Global, Regional and Select National Trends</em> (September 2025), as reported by <a href="https://allafrica.com/stories/202509160035.html">AllAfrica</a>. Totals differ by poverty line and release, so check the <a href="https://pip.worldbank.org/">World Bank&rsquo;s current data</a> before quoting.</p>
+  </div>
+</section>
+
+<!-- ACT 5 -->
+<section id="bridge">
+  <div class="wrap">
+    <div class="read">
+      <p class="act"><b>Act 5</b><span>Fast and durable</span></p>
+      <h2>Individuals are fast. Institutions are durable.</h2>
+      <p>Two groups built this road: the technologists who spent decades making it possible to connect any two people on Earth, and the open education community that filled it with something worth carrying.</p>
+      <p>I can build something overnight for one student. I can&rsquo;t make it last, make it trustworthy, or carry it to the next thousand students. That is your work, and it is the work that makes mine worth anything.</p>
+      <p>I stay in institutions because they do what I can&rsquo;t.</p>
+      <p class="small">&mdash; Jesse</p>
+    </div>
+    <figure>
+      <svg viewBox="0 0 680 230" role="img" aria-labelledby="bt bd">
+        <title id="bt">One rope across a gap, with a stronger cable to be built beside it</title>
+        <desc id="bd">Two cliffs face each other. A single thin rope sags between them, labeled as the first rope, built by Jesse and Mike. A thicker dashed cable above it is labeled as the cable that holds, to be built together.</desc>
+        <path d="M0 230 L0 120 L150 120 L190 150 L190 230 Z" fill="#2a2c38"/>
+        <path d="M680 230 L680 120 L530 120 L490 150 L490 230 Z" fill="#2a2c38"/>
+        <path d="M150 118 Q340 190 530 118" fill="none" stroke="#a9aebb" stroke-width="3" stroke-linecap="round"/>
+        <path d="M150 104 Q340 150 530 104" fill="none" stroke="#5b8cff" stroke-width="10" stroke-linecap="round" stroke-dasharray="3 14"/>
+        <text x="75" y="96" text-anchor="middle" fill="#f4f5f8" font-size="30" font-weight="700" font-family="system-ui,sans-serif">Florida</text>
+        <text x="605" y="96" text-anchor="middle" fill="#f4f5f8" font-size="30" font-weight="700" font-family="system-ui,sans-serif">Senegal</text>
+      </svg>
+      <ul class="key">
+        <li><i class="k1" aria-hidden="true"></i>The first rope: Jesse and Mike</li>
+        <li><i class="k2" aria-hidden="true"></i>The cable that holds: built together</li>
+      </ul>
+      <figcaption>Mike and I are the first rope across the gap. You know how to build the cable that holds.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ACT 6 -->
+<section id="ask">
+  <div class="wrap">
+    <div class="read">
+      <p class="act"><b>Act 6</b><span>How you can help</span></p>
+      <h2>We need people who have done this before</h2>
+      <p>Mike and I built the first rope. We have never written a grant or run anything bigger than a learning center or a classroom, so we need people who have.</p>
+    </div>
+    <ul class="grid">
+      <li class="card hi">
+        <span class="tag">Most wanted</span>
+        <h3>You have built programs that last</h3>
+        <p>If you have taken a working model and turned it into a program that lasts, that is who we most want to talk to.</p>
+      </li>
+      <li class="card">
+        <span class="tag">Welcome</span>
+        <h3>You speak French</h3>
+        <p>Review French materials, make something with Mike&rsquo;s students, or write back to them.</p>
+      </li>
+      <li class="card">
+        <span class="tag">Both ways</span>
+        <h3>You have partnerships of your own</h3>
+        <p>If there are relationships you would like to learn from us about, we are glad to share what we have learned.</p>
+      </li>
+    </ul>
+    <div class="read">
+      <blockquote class="big">Thirty minutes is all we&rsquo;re asking for.</blockquote>
+      <p>Find us after the talk, or connect with Jesse on LinkedIn.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://www.linkedin.com/in/jesse-rogers-42256797">Connect with Jesse on LinkedIn</a>
+      </div>
+      <blockquote class="big">I hope everyone in this room gets that someday.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap read">
+    <p class="act"><b>Extra</b><span>Questions we expect</span></p>
+    <h2>Honest answers</h2>
+    <details class="faq">
+      <summary>Isn&rsquo;t AI-built content full of errors?</summary>
+      <p>Grounding in lookup and citations has improved a great deal, and on well-documented subjects like calculus I trust frontier models more than I trust myself. Where the data is thin, as with Wolof and Pulaar, a local speaker has to confirm and adjust. Verification has moved. It hasn&rsquo;t vanished. Mike can tell you how well AI translates across his five languages.</p>
+    </details>
+    <details class="faq">
+      <summary>Can one person&rsquo;s builds last?</summary>
+      <p>Not on their own. Individuals prototype, and institutions sustain. That is why we are asking for your help.</p>
+    </details>
+    <details class="faq">
+      <summary>What about students without AI access?</summary>
+      <p>This works for Mike because he has a connection and a computer. Extending that is part of the ask.</p>
+    </details>
+    <details class="faq">
+      <summary>How do you feel about AI training on open work?</summary>
+      <p>Jesse&rsquo;s view: ideas are like air, free to breathe in and out. Many instructors feel differently, especially about their own voice or image. A dedication on a specific gift is a separate matter, which is why the Garden is licensed no-derivatives.</p>
+    </details>
+    <details class="faq">
+      <summary>Why not put everything in a repository?</summary>
+      <p>Jesse&rsquo;s answer: that is my seat, not a verdict on yours. Repositories do vetting, trust and scale. I work one person at a time.</p>
+    </details>
+  </div>
+</section>
+
+<!-- REUSE -->
+<section id="reuse">
+  <div class="wrap read">
+    <p class="act"><b>Extra</b><span>Reuse this page</span></p>
+    <h2>Take it, change it, translate it</h2>
+    <p>This page is licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. You may copy, adapt, translate, print and teach with it, including commercially, as long as you credit us and indicate any changes.</p>
+    <p><strong>Suggested credit:</strong> <span class="code">&ldquo;The Last Mile Can Be 4,000 Miles Away&rdquo; by Jesse Rogers and Mike Ba, CC BY 4.0</span></p>
+    <p>It is a single HTML file with no outside scripts or fonts. Save it, open it in any text editor, and make it yours. A French version would make us especially happy.</p>
+    <p class="small">The linked projects keep their own licenses: Learning to Learn is CC0, the Senegal report is CC BY-NC 4.0, and the Garden of Two Truths is CC BY-ND 4.0.</p>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section id="sources">
+  <div class="wrap read">
+    <p class="act"><b>Extra</b><span>All links and sources</span></p>
+    <h2>Everything we mentioned</h2>
+    <h3>Our projects</h3>
+    <ul class="src">
+      <li><a href="https://rogersmath.github.io/mike-ba-tutoring/">Mike Ba Tutoring</a></li>
+      <li><a href="https://rogersmath.github.io/trio/">Learning to Learn</a> (CC0)</li>
+      <li><a href="https://claude.ai/artifact/1WAHUfyZuSMkLppmwjRdgN">The Garden of Two Truths</a> (CC BY-ND 4.0)</li>
+      <li><a href="https://rogersmath.github.io/senegal/">Dundal Ganthiakh: Green Infrastructure Report</a> (CC BY-NC 4.0)</li>
+      <li><a href="https://jesserogers.substack.com/p/bonjour-les-enfants-du-senegal">Bonjour, les enfants du S&eacute;n&eacute;gal</a> (Substack)</li>
+    </ul>
+    <h3 style="margin-top:1.6rem">Where the numbers come from</h3>
+    <ul class="src">
+      <li><a href="https://allafrica.com/stories/202509160035.html">World Bank and UNICEF child poverty report, via AllAfrica</a>, September 2025</li>
+      <li><a href="https://pip.worldbank.org/">World Bank Poverty and Inequality Platform</a>, for current figures</li>
+    </ul>
+    <h3 style="margin-top:1.6rem">Open education and AI, if you want to read more</h3>
+    <ul class="src">
+      <li><a href="https://er.educause.edu/articles/2026/5/expanding-oer-with-genai">Expanding OER with GenAI</a>, EDUCAUSE Review, May 2026</li>
+      <li><a href="https://neoer.umasscreate.net/">Northeast OER Summit 2026</a>, including the keynote &ldquo;AI Killed OER&hellip; Long Live OER!&rdquo;</li>
+      <li><a href="https://necc.edu/newsroom/2026/09/21/dozens-of-necc-faculty-address-ai-literacy-with-open-educational-resources-projects/">Northern Essex Community College faculty AI literacy OER projects</a>, September 2026</li>
+      <li><a href="https://creativecommons.org/ai-and-the-commons/">Creative Commons on AI and the commons</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>The Last Mile Can Be 4,000 Miles Away</strong> &copy; 2026 Jesse Rogers and Mike Ba. Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+    <p>AI use disclosure: this page was drafted and built with AI assistance (Claude, by Anthropic) and directed by Jesse Rogers.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  try{
+    var bar=document.getElementById('bar'),pct=document.getElementById('pct');
+    function update(){
+      var h=document.documentElement,max=h.scrollHeight-h.clientHeight;
+      var p=max>0?Math.min(100,Math.max(0,Math.round(h.scrollTop/max*100))):0;
+      bar.style.width=p+'%';pct.textContent=p+'%';
+    }
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+    update();
+    var d=document.querySelector('details.jump');
+    if(d){d.addEventListener('click',function(e){if(e.target.closest('a'))d.removeAttribute('open');});}
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
